@@ -1,0 +1,44 @@
+body {
+    margin: 0px;
+    background-size: 2000px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.antContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    border: 2px solid blue;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cardCadastro {
+    z-index: 99;
+    border: 2px solid red;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.6;
+    width: 45%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+.bemV {
+    z-index: 100;
+    color: black;
+    font-size: 50px;
+    margin-top: 25px;
+}
+
+.cardCadastro .bemV {
+    opacity: 300;
+}
