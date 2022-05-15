@@ -1,0 +1,68 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.bannerN {
+    /* border: 2px solid black; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+}
+
+.container {
+    /* border: 2px solid blue; */
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    /* border: solid 2px red; */
+    width: 99%;
+    height: 8vh;
+    border-bottom: 2px solid;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px gray;
+}
+
+.imgCor {
+    width: 4%;
+    height: 7vh;
+}
+
+.list {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list .quatro{
+    margin-right: 5px;
+}
+
+a {
+    font-size: 20px;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+
+a:hover {
+
+text-decoration: solid;
+text-decoration: solid;
+color: rgb(226, 169, 11);
+
+}

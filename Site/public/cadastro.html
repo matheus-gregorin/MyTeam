@@ -109,11 +109,11 @@
             var nomeVar = input_nome.value
             var emailVar = input_email.value
             var senhaVar = input_senha.value
-            var ConfsenhaVar = input_Confsenha.value
+            var confSenhaVar = input_Confsenha.value
             var jogadorVar = selectId.value
 
 
-if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+if (nomeVar == "" || emailVar == "" || senhaVar == "") {
     ivalidCadastro.style.display = "block"
     ivalidCadastro.innerHTML = "Preencha todos os campos para prosseguir!";
     return false;
@@ -124,13 +124,14 @@ if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1 || emailVar.le
     return false;
 }
 
-if (senhaVar != confirmacaoSenhaVar) {
+if (senhaVar != confSenhaVar) {
     ivalidCadastro.style.display = "block"
     ivalidCadastro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
     return false;
 }
 
 // Enviando o valor da nova input
+
 fetch("/usuarios/cadastrar", {
     method: "POST",
     headers: {
