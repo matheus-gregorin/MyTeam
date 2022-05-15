@@ -1,0 +1,177 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    background-size: cover;
+    word-wrap: break-word;
+
+}
+
+.antContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.cardCadastro {
+    background-color: rgb(146, 146, 146);
+    width: 55%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.imgCor {
+    height: 20vh;
+    margin: -30px 0px 10px 0px;
+}
+
+.nomeEmail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contNome {
+    display: flex;
+    flex-direction: column;
+}
+
+.contEmail {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputNome {
+    height: 25px;
+    width: 70%;
+    border-radius: 5px 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid black;
+    transition: 0.5s;
+    
+}
+
+.inputNome:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+}
+
+.inputEmail {
+    height: 25px;
+    width: 100%;
+    border-radius: 5px 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid black;
+    transition: 0.5s;
+}
+
+.inputEmail:hover {
+    background-color: black;
+    color: white; 
+    border: 2px solid black;
+}
+
+
+.Senha{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.contSenha {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputSenha {
+    height: 25px;
+    width: 60%;
+    border-radius: 5px 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid black;
+    transition: 0.5s;
+}
+
+.inputSenha:hover {
+    background-color: black;
+    color: white; 
+    border: 2px solid black;
+}
+
+
+.inputConfSenha {
+    height: 25px;
+    width: 60%;
+    border-radius: 5px 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid black;
+    transition: 0.5s;
+}
+
+.inputConfSenha:hover {
+    background-color: black;
+    color: white; 
+    border: 2px solid black;
+}
+
+.select {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 10px -150px;
+}
+
+.contSelect {
+    border-radius: 3px 3px 3px 3px;
+    border: 2px solid black;
+    width: 60%;
+}
+
+#selectId {
+    width: 100%;
+}
+
+
+
+.button {
+    margin: 20px 0px 0px 0px;
+    padding: 5px;
+    width: 130px;
+    height: 6vh;
+    background-color: #0000;
+    color: white;
+    border-radius: 8px 8px 8px 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: 0.5s;
+}
+
+.button:hover {
+    transform: scale(1.2);
+    background-color: black;
+    cursor: pointer;
+    
+}
+
+.cardCadastro h2{
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 900;
+}
+
+
+.invalidCadastro {
+    color: red;
+}

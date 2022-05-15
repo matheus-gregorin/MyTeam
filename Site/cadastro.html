@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+
+<link rel="stylesheet" href="css/style_cadastro.css">
+
+<body style="background-image: url(Img/cinza.jpg) ;">
+    
+    <div class="antContainer">
+
+
+        <div class="container">
+
+
+            <div class="cardCadastro">
+
+                <div class="contentBemV">  <img src="Img/icon Corinthians.png" class="imgCor"> </div>
+
+                <div class="nomeEmail">
+
+                    <div class="contNome">
+
+                 <h2> Digite aqui seu Nome: </h2>                  
+                     <input type="text" id="input_nome" class="inputNome" placeholder="Digite aqui ">
+
+                     <div id="InvalidNome"></div>
+
+                    </div>
+
+                     <div class="contEmail">
+
+                 <h2> Digite aqui seu Email: </h2>
+                     <input type="email" id="input_email" class="inputEmail" placeholder="Digite aqui ">
+
+                     <div id="InvalidEmail"></div>
+
+                     </div>
+
+                </div>
+
+                <div class="Senha">
+
+                     <div class="contSenha">
+
+                 <h2>Digite aqui sua Senha:</h2>
+                     <input type="password" id="input_senha" class="inputSenha" placeholder="Digite aqui">
+
+                     <div id="invalidSenha"></div>
+
+                     </div>
+
+                     
+                     <div class="contSenha">
+
+                <h2>Confirme sua Senha:</h2>
+                         <input type="password" id="input_Confsenha" class="inputConfSenha" placeholder="Digite aqui">
+       
+                     <div id="invalidConfSenha"></div>
+       
+                     </div>
+
+                </div>
+
+                <div class="select"> 
+
+                    <h2>Escolha seu jogador Favorito:</h2>
+                    
+                    <div class="contSelect">
+
+                       <select id="selectId">
+                           <option value=""> - Clique Aqui - </option>
+                           <option value="1"> Cassio </option>
+                           <option value="2"> Fagner </option>
+                       </select>
+
+                    </div>
+            
+            
+            
+                </div>
+
+                
+
+                     <button onclick="cadastrar()" class="button"> Cadastrar </button>
+
+                     <div class="InvalidCadastro"></div>
+                
+            
+            </div>
+
+        </div>
+         
+    </div>
+
+
+</body>
+</html>
+
+<script>
+           function cadastrar() {
+            
+            var nome = input_nome.value
+            var email = input_email.value
+            var senha = input_senha.value
+            var Confsenha = input_Confsenha.value
+            var jogador = selectId.value
+
+            
+
+           }  
+
+
+
+
+
+
+</script>
