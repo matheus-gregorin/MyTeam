@@ -6,9 +6,10 @@ body {
 .bannerN {
     /* border: 2px solid black; */
     width: 100%;
-    height: 100vh;
+    height: 9vh;
     display: flex;
     justify-content:center;
+    border-bottom: 2px solid gray;
 }
 
 .container {
@@ -21,16 +22,14 @@ body {
 
 .header {
     /* border: solid 2px red; */
-    width: 99%;
-    height: 8vh;
-    border-bottom: 2px solid;
+    width: 100%;
+    height: 5vh;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px gray;
 }
 
 .imgCor {
@@ -65,4 +64,29 @@ text-decoration: solid;
 text-decoration: solid;
 color: rgb(226, 169, 11);
 
+}
+
+.bannerH {
+    display: flex;
+    justify-content: center;
+}
+
+.bannerH .container {
+    /* border: 2px solid blue; */
+    width: 100%;
+    height: 100vh;
+}
+
+.hist {
+    width: 100%;
+    height: 100vh;
+    background-size: 1800px;
+    display: flex;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.textH {
+    background-color: gray;
 }

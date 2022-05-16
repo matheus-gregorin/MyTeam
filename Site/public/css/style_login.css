@@ -16,12 +16,12 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 
 .cardLogin {
-    background-color: black;
+    background-color: rgb(80, 80, 80);
     background-size: cover;
     width: 45%;
     height: 90vh;
@@ -42,7 +42,7 @@ body {
 .imgCor {
     background-size: cover;
     color: black;
-    width: 30%;
+    width: 31%;
     height: 25vh;
     margin-bottom: 10px;
     margin-top: -10px;
@@ -82,8 +82,8 @@ body {
 .button {
     margin-top: 20px;
     padding: 5px;
-    width: 100px;
-    height: 5vh;
+    width: 130px;
+    height: 6vh;
     background-color: black;
     color: white;
     border: 2px solid white;
