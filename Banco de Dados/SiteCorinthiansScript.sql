@@ -40,9 +40,9 @@ select * from jogadores;
 select * from conquistas;
 select * from trofeis;
 
-drop table jogadores;
-drop table usuarios;
-drop table conquistas;
-drop table trofeis;
+#drop table jogadores;
+#drop table usuarios;
+#drop table conquistas;
+#drop table trofeis;
 
 insert into jogadores values (1, 'Cassio', '34', 'Goleiro', '2012-03-28', '0', '0', '585', '712');
