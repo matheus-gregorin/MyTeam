@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
+<script src="../public/js/login.js"></script>
+
 </head>
 
 <link href="css/style_login.css" rel="stylesheet">
@@ -34,7 +37,7 @@
 
                      <div id="InvalidSenha"></div>
 
-                     <button onclick="" class="button"> Logar </button>
+                     <button onclick="entrar()" class="button"> Logar </button>
 
                      <a class="ACad" href="cadastro.html">Ainda não possui cadastro? Clique aqui</a>
                 
@@ -86,7 +89,7 @@ fetch("/usuarios/autenticar", {
     },
     body: JSON.stringify({
         emailServer: emailVar,
-        senhaServer: senhaVar
+        senhaServer: senhaVar,
     })
 }).then(function (resposta) {
     console.log("ESTOU NO THEN DO entrar()!")
@@ -103,7 +106,7 @@ fetch("/usuarios/autenticar", {
             sessionStorage.ID_USUARIO = json.id;
 
             setTimeout(function () {
-                window.location = "dashboard/dashboard.html";
+                window.location = "index.html";
             }, 1000); // apenas para exibir o loading
 
         });
