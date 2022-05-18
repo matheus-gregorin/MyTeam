@@ -40,9 +40,12 @@ select * from jogadores;
 select * from conquistas;
 select * from trofeis;
 
-#drop table jogadores;
-#drop table usuarios;
-#drop table conquistas;
-#drop table trofeis;
+drop table jogadores;
+drop table usuarios;
+drop table conquistas;
+drop table trofeis;
 
-insert into jogadores values (1, 'Cassio', '34', 'Goleiro', '2012-03-28', '0', '0', '585', '712');
+insert into jogadores values (1, 'Cassio', '34', 'Goleiro', '2012-03-28', '0', '0', '585', '476'),
+							 (2, 'Ivan', '25', 'Goleiro', '2022-04-20', '0', '0', '8', '2'),
+                             (3, 'Fabio Santos', '36', 'Lateral-Esquerdo', '2011-01-30', '2', '3', '10', '0'),
+                             (4, 'Lucas Piton', '21', 'Lateral-Esquerdo', '2019-12-08', '0', '0', '585', '712'),
