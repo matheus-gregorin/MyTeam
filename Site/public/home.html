@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="Img/icon Corinthians.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <title>Corinthians</title>
-
-
 
 </head>
 
@@ -53,6 +52,8 @@
 
 </div>
 
+<div class="BemVindo">ndkjand</div>
+
 <div class="bannerI">
 
     <div class="container">
@@ -65,7 +66,7 @@
 
 </div>
 
-<div class="bannerH">
+<div class="bannerH" id="bannerH">
 
      <div class="container">
 
@@ -73,23 +74,117 @@
 
             <div class="textH">
 
-             <h2> Bem vindo ao Bando de Loucos </h2>
+             <h2> BEM VINDO AO BANDO DE LOUCOS... </h2>
 
-             <span> Sport Clube Corinthians, funddo em 1910, pelos amigos...</span>
+             <h3> Fundação do Sport Clube Corinthinas </h3>
+
+             <span>  Um grupo de homens de vida humilde - os pintores de casa Joaquim Ambrósio, Antônio Pereira e César Nunes;
+                     o sapateiro Rafael Perrone; o motorista Anselmo Correia; o fundidor Alexandre Magnani, o macarroneiro Salvador Lopomo,
+                     o trabalhador braçal João da Silva e o alfaiate Antônio Nunes - decidiram fundar o seu próprio clube de futebol.
+
+                     Assim, às 20h30m do dia 1° de setembro, à luz do lampião de gás, altura do número 34 que iluminava a da Avenida dos Imigrantes (atual José Paulino),
+                     no Bom Retiro, treze pessoas sacramentaram a fundação do Sport Corinthians Paulista, eles se reuniram e redigiram o primeiro estatuto do clube.
+                     Faltava apenas financiamento para o sonho se realizar. Foi aí que Miguel Bataglia entrou em cena. Bataglia era um requintado alfaiate;
+                     aceitou participar e foi oficialmente nomeado o primeiro presidente. O clube já tomava uma cara, mas faltava o nome.
+                     As idéias passaram por Santos Dummont, Carlos Gomes e até Guarani, mas nenhuma delas foi escolhida. Foi então que Joaquim Ambrósio sugeriu homenagear o famoso time inglês que fazia uma excursão pelo país:
+                     o Corinthian Football Club. O clube que se tornaria o mais querido do Brasil já tinha nome.
+                     A torcida e a imprensa chamavam a equipe de Corinthian’s Team. Assim,
+                     a letra "s" foi acrescentada ao nome, e o clube ganhou o elegante nome Corinthians.</span>
+
+                     <div style="color: white; cursor: pointer; font-family: Arial, Helvetica, sans-serif;" onclick="verMais()" id="ver"> Ver mais... </div>
+                     <div style="color: white; cursor: pointer;font-family: Arial, Helvetica, sans-serif;" onclick="verMenos()" id="NaoVer"> </div>
+
+                     
+                     <div class="prime" style="border-top: 3px solid gray;"> <h2 style="color: white;"> Primeiros Jogos </h2> </div>
+
+             <h3> 1911 Fora de casa </h3>
+
+             <span>  Primeiro jogo do Timão fora da cidade de São Paulo. Na manhã de 17 de setembro, 
+                     vitória sobre a Ponte Preta em Campinas por 1 a 0.</span>
+
+             <h3> 1912 Jogos na várzea </h3>
+
+             <span> Registro de jogos na várzea cujos resultados não foram encontrados. Os adversários foram Paulista,
+                    Concórdia, Botafogo, Minas Gerais, Maranhão e Vila Mariana. </span>
 
             </div>
-            
-            <div class="divVideo">
 
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/RufmZc3cdXo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-
-            </div>
-
-       </div>
+        </div>
 
      </div>
 
 </div>
 
+<div class="bannerI2">
+
+    <div class="container">
+
+      <div class="hist2" style="background-image: url(Img/__upload_wallpapers_corinthiano_desde_crianca_por_bruno_teixeira_rolo_1h_1920x1280.jpg);">
+    
+      </div>
+
+    </div>
+
+
+</div>
+
+<div style="height: 40vh;">
+    
+  <!-- Swiper -->
+<div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+           <div class="swiper-slide">Slide 1</div>
+           <div class="swiper-slide">Slide 2</div>
+           <div class="swiper-slide">Slide 3</div>
+           <div class="swiper-slide">Slide 4</div>
+           <div class="swiper-slide">Slide 5</div>
+           <div class="swiper-slide">Slide 6</div>
+           <div class="swiper-slide">Slide 7</div>
+           <div class="swiper-slide">Slide 8</div>
+           <div class="swiper-slide">Slide 9</div>
+    </div>
+           <div class="swiper-button-next"></div>
+           <div class="swiper-button-prev"></div>
+           <div class="swiper-pagination"></div>
+</div>
+
+
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </body>
 </html>
+
+<script>
+
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          type: "progressbar",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+       });
+
+     function verMais(){
+
+     bannerH.style.height = `500vh`
+     bannerH.style.overflow = `auto`
+     ver.innerHTML = ``
+     NaoVer.innerHTML = `Ver menos...`
+
+     }
+
+     function verMenos(){
+
+     bannerH.style.height = `120vh`
+     bannerH.style.overflow = `hidden`
+     ver.innerHTML = `Ver Mais...`
+     NaoVer.innerHTML = ``
+
+     }
+
+</script>
