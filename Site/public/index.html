@@ -31,14 +31,19 @@
                  <h2> <img src="Img/Login.png" class="imgLogin"> Digite aqui seu Email: </h2>                  
                      <input id="input_email" class="inputEmail" placeholder="   ******@Email.com    ">
 
-                     <div id="InvalidEmail"></div>
 
                  <h2> <img src="Img/Senha.png" class="imgSenha"> Digite aqui sua Senha: </h2>
                      <input type="password" id="input_senha" class="inputSenha" placeholder="   ********    ">
 
-                     <div id="InvalidSenha"></div>
+                     <div class="contBot">
 
                      <button onclick="entrar()" class="button"> Logar </button>
+                     
+                     <div class="contC">
+                     <div id="invalido"></div>
+                    </div>
+
+                    </div>
 
                      <a class="ACad" href="cadastro.html">Ainda não possui cadastro? Clique aqui</a>
                 
@@ -63,20 +68,22 @@ var senhaVar = input_senha.value;
 // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS
 
 if (emailVar == "" || senhaVar == "") {
-    cardErro.style.display = "block"
-    mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+    invalido.innerHTML = "<span style='color: red;'> Preencha todos os campos! </span>";
     return false;
 }
 else {
+
     setInterval(sumirMensagem, 5000)
 }
 
-if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-    cardErro.style.display = "block"
-    mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com.br") == -1 ) {
+    invalido.innerHTML = "<span style='color: red;'> Ops, e-mail inválido! Verifique e tente novamente.</span>";
     return false;
 }
 else {
+
+    invalido.innerHTML = `<img style='width: 85px; heigth: 110vh;' src='Img/carregando.gif'>`
+
     setInterval(sumirMensagem, 5000)
 }
 
@@ -129,7 +136,7 @@ return false;
 }
 
 function sumirMensagem() {
-cardErro.style.display = "none"
+invalido.style.display = "none"
 }
 
 </script>

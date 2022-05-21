@@ -32,18 +32,18 @@
                     <div class="contNome">
 
                  <h2> Digite aqui seu Nome: </h2>                  
-                     <input type="text" id="input_nome" class="inputNome" placeholder="Digite aqui ">
+                     <input type="text" id="input_nome" class="inputNome" placeholder="Digite aqui" onkeyup="inputNome()">
 
-                     <div id="InvalidNome"></div>
+                     <div id="InvalidNome" class="invalid"></div>
 
                     </div>
 
                      <div class="contEmail">
 
                  <h2> Digite aqui seu Email: </h2>
-                     <input type="email" id="input_email" class="inputEmail" placeholder="Digite aqui ">
+                     <input type="email" id="input_email" class="inputEmail" placeholder=" ***@.com.br " onkeyup="inputEmail()">
 
-                     <div id="InvalidEmail"></div>
+                     <div id="InvalidEmail" class="invalid"></div>
 
                      </div>
 
@@ -54,9 +54,9 @@
                      <div class="contSenha">
 
                  <h2>Digite aqui sua Senha:</h2>
-                     <input type="password" id="input_senha" class="inputSenha" placeholder="Digite aqui">
+                     <input type="password" id="input_senha" class="inputSenha" placeholder="Digite aqui" onkeyup="inputSenha()">
 
-                     <div id="invalidSenha"></div>
+                     <div id="InvalidSenha" class="invalid"> Minimo de 6 caracteres </div>
 
                      </div>
 
@@ -64,9 +64,9 @@
                      <div class="contSenha">
 
                 <h2>Confirme sua Senha:</h2>
-                         <input type="password" id="input_Confsenha" class="inputConfSenha" placeholder="Digite aqui">
+                         <input type="password" id="input_Confsenha" class="inputConfSenha" placeholder="Digite aqui" onkeyup="inputConfsenha()">
        
-                     <div id="invalidConfSenha"></div>
+                     <div id="InvalidConfSenha" class="invalid"></div>
        
                      </div>
 
@@ -79,7 +79,6 @@
                     <div class="contSelect">
 
                        <select id="selectId">
-                           <option value=""> - Clique Aqui - </option>
                            <option value="1"> Cassio </option>
                            <option value="2"> Fagner </option>
                        </select>
@@ -90,12 +89,15 @@
             
                 </div>
 
-                
+                 <div class="contBot">
 
-                     <button onclick="cadastrar()" class="button"> Cadastrar </button>
+                     <button onclick="cadastrar()" class="button" id="buttonn"> Cadastrar </button>
 
-                     <div class="InvalidCadastro" id="ivalidCadastro"></div>
-                
+                     <div class="contC">
+                     <div class="InvalidCadastro" id="ivalidCadastro"> <span style='color: black; font-size: 18px;'> O botão aparecera assim que as informações estiverem corretas </span> </div>
+                     </div>  
+
+                </div>
             
             </div>
 
@@ -108,31 +110,138 @@
 </html>
 
 <script>
+
+    var nome_externo = ""
+
+    var email_externo = ""
+
+    var senha_externa = 0 
+
+    var ConfSenha_externa = 0
+
+    
+        
+           function inputNome () {
+
+            var nome = input_nome.value
+            
+            if (nome.length < 3) {
+
+            InvalidNome.innerHTML = `<span style='color: red;'> Nome Invalido </span>`
+            input_nome.style.backgroundColor = `red`
+
+            } else {
+
+            InvalidNome.innerHTML = `<span style='color: gray;'> Nome Válido </span>`
+            input_nome.style.backgroundColor = `gray`
+
+
+            nome_externo = nome
+
+            }
+    
+}
+
+
+           function inputEmail () {
+
+            var email = input_email.value
+
+            if (email.length <= 0) {
+
+            InvalidEmail.innerHTML = `<span style='color: red;'> Email Invalido </span>`
+            input_email.style.backgroundColor = `red`
+
+
+            } else if (email.indexOf("@") <= 0) {
+
+            InvalidEmail.innerHTML = `<span style='color: red;'> (Falta o "@.com.br") </span>`
+            input_email.style.backgroundColor = `red`
+
+
+            } else if (email.indexOf(".com.br") <= 0) {  
+
+            InvalidEmail.innerHTML = `<span style='color: red;'> (Falta o ".com.br") </span>`
+            input_email.style.backgroundColor = `red`
+                
+                
+            } else if (email.indexOf("@") > email.indexOf(".com.br")) {
+
+            InvalidEmail.innerHTML = `<span style='color: red;'> ("@" vem antes do ".com.br") </span>`
+            input_email.style.backgroundColor = `red`
+
+
+            } else {
+
+            InvalidEmail.innerHTML = `<span style='color: gray;'> Email Valido </span>`
+            input_email.style.backgroundColor = `gray`
+
+            email_externo = email
+
+            }
+
+
+
+}
+
+
+           function inputSenha () {
+
+            var senha = input_senha.value
+
+            if (senha.length < 6) {
+              
+            InvalidSenha.innerHTML = `<span style='color: red;'> (faltam ${6 - (senha.length)} caracteres) </span>`
+            input_senha.style.backgroundColor = `red`
+
+
+            } else {
+
+            InvalidSenha.innerHTML = `<span style='color: gray;'> Senha OK </span>`
+            input_senha.style.backgroundColor = `gray`
+
+
+            senha_externa = senha
+
+            }
+    
+}
+
+
+           function inputConfsenha () {
+
+            var confSenha = input_Confsenha.value
+
+            if (confSenha != senha_externa) {
+
+            InvalidConfSenha.innerHTML = `<span style='color: red;'> Senha não compativel </span>`
+            input_Confsenha.style.backgroundColor = `red`
+
+
+            } else if (confSenha == senha_externa && nome_externo != "" && email_externo != "" && senha_externa != 0) {
+
+            InvalidConfSenha.innerHTML = `<span style='color: gray;'> Senha compativel </span>`
+            input_Confsenha.style.backgroundColor = `gray`
+            ivalidCadastro.innerHTML = ``
+            
+
+            buttonn.style.display = "block"
+
+            ConfSenha_externa = confSenha
+
+            }
+    
+}
+
+
+
            function cadastrar() {
             
-            var nomeVar = input_nome.value
-            var emailVar = input_email.value
-            var senhaVar = input_senha.value
-            var confSenhaVar = input_Confsenha.value
+            var nomeVar = nome_externo
+            var emailVar = email_externo
+            var senhaVar = senha_externa
+            var confSenhaVar = ConfSenha_externa
             var jogadorVar = selectId.value
-
-
-if (nomeVar == "" || emailVar == "" || senhaVar == "") {
-    ivalidCadastro.style.display = "block"
-    ivalidCadastro.innerHTML = "Preencha todos os campos para prosseguir!";
-    return false;
-}
-if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1 || emailVar.length < 7) {
-    ivalidCadastro.style.display = "block"
-    ivalidCadastro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
-    return false;
-}
-
-if (senhaVar != confSenhaVar) {
-    ivalidCadastro.style.display = "block"
-    ivalidCadastro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
-    return false;
-}
 
 // Enviando o valor da nova input
 
@@ -154,6 +263,8 @@ fetch("/usuarios/cadastrar", {
     console.log("resposta: ", resposta);
 
     if (resposta.ok) {
+
+        ivalidCadastro.innerHTML = `<img style='width: 85px; heigth: 110vh;' src='Img/carregando.gif'>`
         window.location = 'index.html';
     }
 }).catch(function (resposta) {
