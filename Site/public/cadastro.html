@@ -260,8 +260,6 @@ fetch("/usuarios/cadastrar", {
     })
 }).then(function (resposta) {
 
-    console.log("resposta: ", resposta);
-
     if (resposta.ok) {
 
         ivalidCadastro.innerHTML = `<img style='width: 85px; heigth: 110vh;' src='Img/carregando.gif'>`
