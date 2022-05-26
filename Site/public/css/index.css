@@ -99,7 +99,7 @@ color: rgb(226, 169, 11);
     display: flex;
     justify-content: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 
 .bannerH {
@@ -188,7 +188,6 @@ color: rgb(226, 169, 11);
     height: 90vh;
     width: 100%;
     background-size: 1350px;
-    background-attachment: fixed;
 }
 
 .p1 {
@@ -339,17 +338,7 @@ color: rgb(226, 169, 11);
     margin-right: 120px;
 }
 
-.idolo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    padding: 20px;
-    height: 10vh;
-    border-top: 5px solid gray;
-    color: white;
-    font-weight: bolder;
-}
+/* Topico Parede */
 
 
 .parede {
@@ -359,6 +348,61 @@ color: rgb(226, 169, 11);
     background-repeat: no-repeat;
     border-bottom: 2px solid white;
     border-top: 5px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parede .container {
+    border: 2px solid blue;
+    width: 95%;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textIdolos {
+    border: 2px solid red;
+    width: 40%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenteParede {
+    border: solid 2px greenyellow;
+    width: 99%;
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.l1 {
+    border: 2px solid rosybrown;
+    width: 99%;
+    height: 35vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.l1 div{
+    border: white 2px solid;
+    color:  white;
+    width: 20%;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+
 }
 
 
@@ -369,7 +413,6 @@ color: rgb(226, 169, 11);
     width: 100%;
     height: 140vh;
     border-bottom: 2px solid white;
-    background-attachment: fixed;
     background-size: cover;
 }
 
