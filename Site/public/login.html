@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="Img/icon Corinthians.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Corinthians | Login</title>
 
 <script src="../public/js/login.js"></script>
 
@@ -46,6 +46,8 @@
                     </div>
 
                      <a class="ACad" href="cadastro.html">Ainda não possui cadastro? Clique aqui</a>
+
+                     <a class="ACad" href="index.html"> Voltar so Site </a>
                 
             
             </div>
@@ -114,7 +116,7 @@ fetch("/usuarios/autenticar", {
             sessionStorage.ID_USUARIO = json.id;
 
             setTimeout(function () {
-                window.location = "#";
+                window.location = "index.html";
             }, 1000); // apenas para exibir o loading
 
         });
@@ -125,6 +127,8 @@ fetch("/usuarios/autenticar", {
 
         resposta.text().then(texto => {
             console.error(texto);
+
+            invalido.innerHTML = `</span style='color: red;'> Usuario ou senha invalida </span> `
         });
     }
 

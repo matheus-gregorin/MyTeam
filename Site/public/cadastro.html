@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="Img/icon Corinthians.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Corinthians | Cadastro</title>
 
 <script src="../public/js/funcoes.js"></script>
 
@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="css/cadastro.css">
 
-<body style="background-image: url(Img/cinza.jpg) ;">
+<body style="background-image: url(Img/wallpaperbetter.jpg) ;">
     
     <div class="antContainer">
 
@@ -94,8 +94,10 @@
                      <button onclick="cadastrar()" class="button" id="buttonn"> Cadastrar </button>
 
                      <div class="contC">
-                     <div class="InvalidCadastro" id="ivalidCadastro"> <span style='color: black; font-size: 18px;'> O botão aparecera assim que as informações estiverem corretas </span> </div>
-                     </div>  
+                     <div class="InvalidCadastro" id="ivalidCadastro"> <span style='color: black; font-size: 15px;'> O botão aparecera assim que os campos estiverem corretamente preenchidos </span> </div>
+                     </div> 
+
+                     <a class="ACad" href="login.html"> Voltar ao Login </a>
 
                 </div>
             
@@ -263,7 +265,7 @@ fetch("/usuarios/cadastrar", {
     if (resposta.ok) {
 
         ivalidCadastro.innerHTML = `<img style='width: 85px; heigth: 110vh;' src='Img/carregando.gif'>`
-        window.location = 'index.html';
+        window.location = 'login.html';
     }
 }).catch(function (resposta) {
     console.log(`#ERRO: ${resposta}`);
