@@ -14,6 +14,7 @@ html,body {
     border-bottom: 2px solid white;
     background: linear-gradient(to left, gray, black);
     position: fixed;
+    z-index: 1;
 }
 
 ::-webkit-scrollbar {
@@ -89,17 +90,17 @@ color: rgb(226, 169, 11);
 .bannerI .container {
     /* border: 2px solid blue; */
     width: 100%;
-    height: 90vh;
+    height: 60vh;
 }
 
 .hist {
     width: 100%;
-    height: 100vh;
-    background-size: 1800px;
+    height: 70vh;
+    background-size: cover;
     display: flex;
     justify-content: center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
-    /* background-attachment: fixed; */
 }
 
 .bannerH {
@@ -187,7 +188,8 @@ color: rgb(226, 169, 11);
 .hist2 {
     height: 90vh;
     width: 100%;
-    background-size: 1350px;
+    background-size: 1500px;
+    background-attachment: fixed;
 }
 
 .p1 {
@@ -200,8 +202,8 @@ color: rgb(226, 169, 11);
 
 
 .filme {
-    border-top: 4px solid gray;
-    border-bottom: 4px solid gray;
+    border-top: 1.5px solid white;
+    border-bottom: 1.5px solid white;
     width: 100%;
     height: 90vh;
     background-color: black;
@@ -242,6 +244,7 @@ color: rgb(226, 169, 11);
     font-size: 15px;
     margin-top: 30px;
     font-weight: bolder;
+    text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
@@ -252,10 +255,10 @@ color: rgb(226, 169, 11);
 
 
 .bannerDesc {
-    border-bottom: 1.5px solid gray;
+    border-bottom: 1.5px solid white;
     width: 100%;
     height: 60vh;
-    background-color: white;
+    background: linear-gradient(to left, gray, black);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -287,12 +290,17 @@ color: rgb(226, 169, 11);
 .artilheiro {
     margin: 20px 0px 30px -120px;
     font-size: 30px;
+    color: white;
+    margin-top: 100px;
+    text-align: right;
 }
 
 .artilheirodesc {
     font-size: 15px;
     width: 140%;
     margin-left: -120px;
+    color: white;
+    margin-top: 10px;
 }
 
 
@@ -302,7 +310,7 @@ color: rgb(226, 169, 11);
 .bannerDesc2 {
     width: 100%;
     height: 60vh;
-    background-color: white;
+    background: linear-gradient(to left, gray, black);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -330,12 +338,17 @@ color: rgb(226, 169, 11);
 .goleiro {
     margin: 20px 0px 30px 100px;
     font-size: 30px;
+    color: white;
+    margin-top: 100px;
+    text-align: left;
 }
 
 .goleirodesc {
     font-size: 15px;
     width: 140%;
     margin-right: 120px;
+    margin-top: 10px;
+    color: white;
 }
 
 /* Topico Parede */
@@ -343,19 +356,39 @@ color: rgb(226, 169, 11);
 
 .parede {
     width: 100%;
-    height: 130vh;
+    height: 160vh;
     background-size: cover;
     background-repeat: no-repeat;
     border-bottom: 2px solid white;
-    border-top: 5px solid gray;
+    border-top: 1.5px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .parede .container {
-    border: 2px solid blue;
     width: 95%;
+    height: 155vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.textIdolos {
+    color: white;
+    font-size: 40px;
+    width: 40%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.644);
+    border: 2px solid white;
+}
+
+.contenteParede {
+    width: 99%;
     height: 120vh;
     display: flex;
     flex-direction: column;
@@ -363,47 +396,40 @@ color: rgb(226, 169, 11);
     align-items: center;
 }
 
-.textIdolos {
-    border: 2px solid red;
-    width: 40%;
-    height: 12vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenteParede {
-    border: solid 2px greenyellow;
-    width: 99%;
-    height: 110vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .l1 {
-    border: 2px solid rosybrown;
     width: 99%;
-    height: 35vh;
+    height: 45vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    margin: 10px 0px 10px 0px;
 }
 
 .l1 div{
-    border: white 2px solid;
     color:  white;
+    font-size: 20px;
     width: 20%;
-    height: 25vh;
+    height: 28vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: end;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.644);
+    border: 2px solid white;
+    border-radius: 30px;
+    transition: 0.7s;
 
 
 }
+
+.l1 div:hover {
+
+    transform: scale(1.4);
+    z-index: 0;
+    
+    
+    }
 
 
 /* Topico Estadio */
@@ -421,9 +447,8 @@ color: rgb(226, 169, 11);
     width: 100%;
     display: flex;
     justify-content: center;
-    background-size: 1400px;
+    background-size: cover;
     background-repeat: no-repeat;
-    border-bottom: 2px solid white;
 }
 
 .bannerTexto .container {
@@ -433,7 +458,9 @@ color: rgb(226, 169, 11);
 }
 
 .titulo {
-    background-color: gray;
+    background-color: rgba(0, 0, 0, 0.678);
+    width: 30%;
+    text-align: left;
     text-align: center;
     color: white;
     font-size: 40px;
@@ -442,18 +469,142 @@ color: rgb(226, 169, 11);
 
 .conteudo {
     width: 110%;
-    background-color: gray;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.726);
     text-align: justify;
     color: white;
     font-size: 25px;
     margin-left: -55px;
 }
 
+/* Titulos */
+
+.BannerTitulos {
+    width: 100%;
+    height: 175vh;
+    background: linear-gradient(to left, gray, black);
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid white;
+}
+
+.BannerTitulos .container {
+    width: 100%;
+    height: 160vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contentTitulos {
+    color: white;
+    width: 40%;
+    height: 10vh;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.644);
+    border: 2px solid white;
+}
+
+.ConteudoT {
+    width: 100%;
+    height: 148vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.t1 {
+    width: 100%;
+    height: 130vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.t1 div{
+    background-color: rgba(0, 0, 0, 0.644);
+    border: 2px solid white;
+    width: 25%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.7s;
+    font-size: 20px;
+    color: white;
+}
+
+.t1 div:hover {
+
+transform: scale(1.4);
+z-index: 0;
+
+
+}
+
+/* Footer */
+
+.BannerFooter {
+    border-top: 1.5px solid white;
+    width: 100%;
+    height: 50vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BannerFooter .container {
+    border-bottom: 1.5px solid gray;
+    width: 80%;
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contFooter {
+    width: 95%;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contFooter div{
+    width: 100%;
+    height: 38vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.contFooter div span{
+    font-size: 18px;
+}
+
+.contFooter div h2 {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+
 .footer {
     width: 100%;
     height: 10vh;
     background-color: black;
-    border-top: 2px solid gray;
     display: flex;
     justify-content: center;
     align-items: center;
