@@ -134,14 +134,6 @@ color: rgb(226, 169, 11);
 
 }
 
-/* .divVideo {
-    border: 2px solid blue;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
 
 .textH h2{
     color: white;
@@ -153,9 +145,10 @@ color: rgb(226, 169, 11);
 
 .textH h3{
     color: black;
-    font-size: 30px;
+    font-size: 32px;
     display: flex;
     justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     
 }
 
@@ -166,6 +159,7 @@ color: rgb(226, 169, 11);
     display: flex;
     justify-content: center;
     text-align: justify;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .prime {
@@ -255,9 +249,9 @@ color: rgb(226, 169, 11);
     border: 2px solid white;
 }
 
-
 .bannerDesc {
     border-bottom: 1.5px solid white;
+    border-top: 1.5px solid white;
     width: 100%;
     height: 60vh;
     background: linear-gradient(to left, gray, black);
@@ -380,7 +374,7 @@ color: rgb(226, 169, 11);
 .textIdolos {
     color: white;
     font-size: 40px;
-    width: 40%;
+    width: 25%;
     height: 12vh;
     display: flex;
     justify-content: center;
@@ -417,8 +411,6 @@ color: rgb(226, 169, 11);
     flex-direction: column;
     justify-content: end;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.644);
-    border: 2px solid white;
     border-radius: 30px;
     transition: 0.7s;
 
@@ -442,7 +434,40 @@ color: rgb(226, 169, 11);
     height: 140vh;
     border-bottom: 2px solid white;
     background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
 }
+
+.audioT {
+    margin-top: 145px;
+    margin-right: 30px;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.705);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    opacity: 0;
+    animation-name: aparecer;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes aparecer {
+
+    from{
+
+     opacity: 1;
+
+    }
+
+    to {
+
+     opacity: 0.1;
+
+    }
+}
+
 
 .bannerTexto {
     height: 60vh;
@@ -552,6 +577,85 @@ z-index: 0;
 
 
 }
+
+/* Comentaristas */
+
+.BannerComents {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 4px solid black;
+    border-bottom: 1.5px solid gray;
+}
+
+.BannerComents .container {
+    width: 90%;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudoComent {
+    width: 95%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.conteudoComent2 {
+    width: 95%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.conteudoComent3 {
+    width: 95%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fotoComent {
+    background-size: cover;
+    margin-right: 35px;
+    border: 1.5px solid gray;
+}
+
+.Coment {
+    background-color: rgba(129, 129, 129, 0.336);
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.356);
+    width: 82%;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 23vh;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    text-align: justify;
+}
+
+
+.ultimoB {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+}
+
 
 /* Footer */
 

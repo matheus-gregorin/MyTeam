@@ -1,4 +1,4 @@
-sessão
+// sessão
 function validarSessao() {
     // aguardar();
 
