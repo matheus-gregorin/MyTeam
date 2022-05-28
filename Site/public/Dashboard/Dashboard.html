@@ -25,45 +25,32 @@
 <body onload="validarSessao(), atualizarFeed()">
     <!-- <body onload="validarSessao()"> -->
 
-    <div class="janela">
-        <div class="header-left">
+    <div class="janela" style="width: 79%;">
+        <div class="header-left" style="width: 30%;">
             <h1> Corinthians </h1>
 
             <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
+                <h3>Olá, <span id="b_usuario"></span> </h3>
             </div>
 
             <div class="btn-nav">
 
-                <h3>Gráficos</h3>
+                Algo
 
             </div>
 
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
 
-        </div>
 
-        <div class="dash">
+
+        <div class="dash" style="width:170%;">
             <div class="btns-dash">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <button class="btn-chart" onclick="obterDadosGrafico(1)">Aquario 1</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(2)">Aquario 2</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(3)">Aquario 3</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(4)">Aquario 4</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(1)"> Jogadores Favoritos </button>
             </div>
             <div class="graph">
                 <canvas id="canvas_grafico"></canvas>
@@ -74,6 +61,30 @@
 
 </body>
 
+
+<script>
+    const labels = [];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'My First dataset',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [0, 10, 5, 2, 20, 30, 45],
+      }]
+    };
+  
+    const config = {
+      type: 'line',
+      data: data,
+      options: {}
+    };
+  </script>
+  
+
+
+
 </html>
 
 <script>
@@ -82,6 +93,8 @@
 
     window.onload = obterDadosGrafico(1);
 
+    sessionStorage.EMAIL_USUARIO;
+    sessionStorage.NOME_USUARIO;
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     //verificar_autenticacao();
@@ -120,17 +133,17 @@
             datasets: [
                 {
                     yAxisID: 'y-umidade',
-                    label: '1',
-                    borderColor: '#32B9CD',
-                    backgroundColor: '#32b9cd8f',
+                    label: '',
+                    borderColor: 'gray',
+                    backgroundColor: 'white',
                     fill: true,
                     data: []
                 },
                 {
                     yAxisID: 'y-temperatura',
                     label: 'Nivel de Favoritismo',
-                    borderColor: '#FFF',
-                    backgroundColor: '#32b9cd8f',
+                    borderColor: 'gray',
+                    backgroundColor: 'black',
                     fill: true,
                     data: []
                 }
@@ -139,7 +152,7 @@
 
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            dados.labels.push(registro.momento_grafico);
+            dados.labels.push(registro.nomeJogador);
             dados.datasets[1].data.push(registro.nomeJogador);
             dados.datasets[1].data.push(registro.Favorito);
         }
@@ -152,7 +165,7 @@
             //Configurações do gráfico
             options: {
                 responsive: true,
-                animation: { duration: 500 },
+                animation: { duration: 300 },
                 hoverMode: 'index',
                 stacked: false,
                 title: {
@@ -207,7 +220,7 @@
 
                     // tirando e colocando valores no gráfico
                     dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                    dados.labels.push(novoRegistro[0].nomeJogador); // incluir um novo momento
                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
                     dados.datasets[0].data.push(novoRegistro[0].nomeJogador); // incluir uma nova medida de umidade
                     dados.datasets[1].data.shift();  // apagar o primeiro de umidade

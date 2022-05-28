@@ -3,6 +3,8 @@
 *,
 body {
   font-family: "Exo 2", sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 
 .dash-right .avisos {
@@ -53,7 +55,7 @@ body {
   padding: 10px 15px;
   color: white;
   background-color: #e6005a;
-  width: 120px;
+  width: 100%px;
 }
 
 .publicacao-btn-editar {
@@ -106,7 +108,7 @@ body {
 /* pagina graficos */
 
 .dash-header {
-  background-color: #212124;
+  background-color: #2323c4;
 }
 
 .dash {
@@ -114,7 +116,7 @@ body {
   position: relative;
   top: 0;
   left: 25%;
-  background-color: #161618;
+  background-color: #ffffff;
 
   /* width: 75%;
     display: flex;
@@ -202,7 +204,7 @@ body {
 .temperatura,
 .umidade {
   margin: 5px;
-  margin-left: 20px;
+  margin-left: 30px;
   width: 75%;
 }
 
