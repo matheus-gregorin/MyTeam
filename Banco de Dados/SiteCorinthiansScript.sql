@@ -35,6 +35,8 @@ idTrofeu int primary key auto_increment,
 nomeTitulo varchar (50)
 );
 
+SELECT * FROM usuarios WHERE email = 'math@gmail.com.br' AND senha = '123456';
+
 select * from usuarios;
 select * from jogadores;
 select * from conquistas;
