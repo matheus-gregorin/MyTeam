@@ -23,39 +23,56 @@
 </head>
 
 <body onload="validarSessao(), atualizarFeed()">
+
     <!-- <body onload="validarSessao()"> -->
 
-    <div class="janela" style="width: 79%;">
-        <div class="header-left" style="width: 30%;">
-            <h1> Corinthians </h1>
+    <div class="janela">
+
+        <div class="header">
+
+            <div class="container">
 
             <div class="hello">
-                <h3>Olá, <span id="b_usuario"></span> </h3>
-            </div>
 
-            <div class="btn-nav">
-
-                Algo
+                <div> Olá, <span id="b_usuario"></span> </div>
 
             </div>
 
-            </div>
+            <div class="contS">
 
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
+            <div class="btn-nav" onclick="obterDadosGrafico(1)"> Atualizar Grafico </div>
+            
+            <div class="btn-sair"> <a href="#"> Sair </a> </div>
 
-
-
-        <div class="dash" style="width:170%;">
-            <div class="btns-dash">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <button class="btn-chart" onclick="obterDadosGrafico(1)"> Jogadores Favoritos </button>
             </div>
-            <div class="graph">
-                <canvas id="canvas_grafico"></canvas>
-            </div>
+            
         </div>
+
+            </div>
+
+        <div class="dash">
+
+            <div class="BannerTitulo">
+
+                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+                <div class="titulo"> Jogadores Favoritos  </div>
+
+            </div>
+
+
+            
+             <div id="dad"></div>
+             <div id="dad1"></div>
+
+
+            <div class="graph">
+
+                <canvas id="canvas_grafico"></canvas>
+
+            </div>
+
+        </div>
+
     </div>
 
 
@@ -95,7 +112,7 @@
 
     sessionStorage.EMAIL_USUARIO;
     sessionStorage.NOME_USUARIO;
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario.innerHTML = sessionStorage.EMAIL_USUARIO;
 
     //verificar_autenticacao();
 
@@ -133,18 +150,18 @@
             datasets: [
                 {
                     yAxisID: 'y-umidade',
-                    label: '',
-                    borderColor: 'gray',
-                    backgroundColor: 'white',
-                    fill: true,
+                    label: 'Jogadores',
+                    borderColor: 'white',
+                    backgroundColor: 'gray',
+                    fill: false,
                     data: []
                 },
                 {
                     yAxisID: 'y-temperatura',
-                    label: 'Nivel de Favoritismo',
-                    borderColor: 'gray',
+                    label: 'Favoritismo',
+                    borderColor: 'white',
                     backgroundColor: 'black',
-                    fill: true,
+                    fill: false,
                     data: []
                 }
             ]
@@ -160,7 +177,7 @@
         console.log(JSON.stringify(dados));
 
         var ctx = canvas_grafico.getContext('2d');
-        window.grafico_linha = Chart.Line(ctx, {
+        window.grafico_linha = Chart.Bar(ctx, {
             data: dados,
             //Configurações do gráfico
             options: {
@@ -170,7 +187,7 @@
                 stacked: false,
                 title: {
                     display: false,
-                    text: 'Histórico recente de umidade/temperatura'
+                    text: 'Favoritismo'
                 },
                 scales: {
                     yAxes: [{
@@ -221,18 +238,24 @@
                     // tirando e colocando valores no gráfico
                     dados.labels.shift(); // apagar o primeiro
                     dados.labels.push(novoRegistro[0].nomeJogador); // incluir um novo momento
+                    
                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
                     dados.datasets[0].data.push(novoRegistro[0].nomeJogador); // incluir uma nova medida de umidade
                     dados.datasets[1].data.shift();  // apagar o primeiro de umidade
                     dados.datasets[1].data.push(novoRegistro[0].Favorito); // incluir uma nova medida de umidade
 
+                    dad.innerHTML = novoRegistro[0].nomeJogador
+                    dad1.innerHTML = novoRegistro[0].Favorito
+
+
+
                     window.grafico_linha.update();
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 800);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 500);
             }
         })
             .catch(function (error) {
