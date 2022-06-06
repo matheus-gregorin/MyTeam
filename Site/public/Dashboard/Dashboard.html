@@ -73,16 +73,34 @@
 
         </div>
 
+        <div class="dashLinha">
+
+            <div class="graphL">
+
+                <canvas id="GraficoLinha"></canvas>
+
+              </div>
+
+
+        </div>
+
     </div>
 
 
 </body>
 
-
 <script>
-    const labels = [];
+
+    const labels = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+    ];
   
-    const data = {
+    const data = { 
       labels: labels,
       datasets: [{
         label: 'My First dataset',
@@ -98,8 +116,15 @@
       options: {}
     };
   </script>
-  
 
+<script>
+    const GraficoLinha = new Chart(
+      document.getElementById('GraficoLinha'),
+      config
+    );
+  </script>
+  
+  
 
 
 </html>
@@ -150,15 +175,15 @@
             datasets: [
                 {
                     yAxisID: 'y-umidade',
-                    label: 'Jogadores',
+                    label: 'Diminuir Barra',
                     borderColor: 'white',
-                    backgroundColor: 'gray',
+                    backgroundColor: 'black',
                     fill: false,
                     data: []
                 },
                 {
                     yAxisID: 'y-temperatura',
-                    label: 'Favoritismo',
+                    label: 'Nivel de Favoritismo',
                     borderColor: 'white',
                     backgroundColor: 'black',
                     fill: false,
@@ -174,7 +199,7 @@
             dados.datasets[1].data.push(registro.Favorito);
         }
 
-        console.log(JSON.stringify(dados));
+        console.log("estou aqui" + JSON.stringify(dados));
 
         var ctx = canvas_grafico.getContext('2d');
         window.grafico_linha = Chart.Bar(ctx, {
@@ -248,7 +273,6 @@
                     dad1.innerHTML = novoRegistro[0].Favorito
 
 
-
                     window.grafico_linha.update();
 
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 800);
@@ -263,4 +287,6 @@
             });
 
     }
+
+
 </script>

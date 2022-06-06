@@ -275,6 +275,8 @@ color: rgb(226, 169, 11);
     width: 100%;
     height: 49vh;
     margin-left: 50px;
+    box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.459);
+    border: 4px solid rgba(163, 163, 163, 0.671);
 }
 
 .img1 {
@@ -289,6 +291,8 @@ color: rgb(226, 169, 11);
     color: white;
     margin-top: 100px;
     text-align: right;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
 }
 
 .artilheirodesc {
@@ -297,6 +301,7 @@ color: rgb(226, 169, 11);
     margin-left: -120px;
     color: white;
     margin-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -329,6 +334,8 @@ color: rgb(226, 169, 11);
 
 .Cassio {
     height: 50vh;
+    box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.459);
+    border: 4px solid rgba(163, 163, 163, 0.671);
 }
 
 .goleiro {
@@ -336,7 +343,9 @@ color: rgb(226, 169, 11);
     font-size: 30px;
     color: white;
     margin-top: 100px;
+    font-weight: bold;
     text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .goleirodesc {
@@ -345,6 +354,7 @@ color: rgb(226, 169, 11);
     margin-right: 120px;
     margin-top: 10px;
     color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* Topico Parede */
@@ -403,7 +413,7 @@ color: rgb(226, 169, 11);
 }
 
 .l1 div{
-    color:  white;
+    color:  rgba(255, 255, 255, 0.829);
     font-size: 20px;
     width: 20%;
     height: 28vh;
@@ -411,11 +421,11 @@ color: rgb(226, 169, 11);
     flex-direction: column;
     justify-content: end;
     align-items: center;
+    font-family: cursive;
     border-radius: 30px;
     transition: 0.7s;
-
-
 }
+
 
 .l1 div:hover {
 
@@ -635,7 +645,7 @@ z-index: 0;
 
 .Coment {
     background-color: rgba(129, 129, 129, 0.336);
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.356);
     width: 82%;
     margin-right: 10px;
