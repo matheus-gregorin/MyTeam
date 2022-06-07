@@ -20,6 +20,8 @@
     <!-- scripts do Chart.js -->
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 
+    <script src="/public/js/jsonJog.js"></script>
+
 </head>
 
 <body onload="validarSessao(), atualizarFeed()">
@@ -39,10 +41,8 @@
             </div>
 
             <div class="contS">
-
-            <div class="btn-nav" onclick="obterDadosGrafico(1)"> Atualizar Grafico </div>
             
-            <div class="btn-sair"> <a href="#"> Sair </a> </div>
+            <div class="btn-sair"> <a href="../index.html"> Sair </a> </div>
 
             </div>
             
@@ -50,20 +50,18 @@
 
             </div>
 
+
+            <div id="Fk"></div>
+
+
         <div class="dash">
 
             <div class="BannerTitulo">
 
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <div class="titulo"> Jogadores Favoritos  </div>
+                <div class="titulo"> Nivel de Favoritismo </div>
 
             </div>
-
-
-            
-             <div id="dad"></div>
-             <div id="dad1"></div> Usuarios Selecionaram
-
 
             <div class="graph">
 
@@ -71,65 +69,43 @@
 
             </div>
 
-        </div>
 
-        <div class="dashLinha">
+            <div class= "contentJog">
 
-            <div class="graphL">
+                INDÍCE GERAL
 
-                <canvas id="GraficoLinha"></canvas>
+             <div id="Imgjog">
+             Jogador:
+             <div id="dad"></div>
+             Votos
+             <div id="dad1"></div> 
 
-              </div>
-
+            </div>
+            </div>
 
         </div>
 
     </div>
 
+    <!-- Grafico 2 -->
+
+    <div class="Contgraph2">
+
+    <div id="mychrtt"> 
+
+    </div>
+
+   </div>
+
+
 
 </body>
-
-<script>
-
-    const labels = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-    ];
-  
-    const data = { 
-      labels: labels,
-      datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45],
-      }]
-    };
-  
-    const config = {
-      type: 'line',
-      data: data,
-      options: {}
-    };
-  </script>
-
-<script>
-    const GraficoLinha = new Chart(
-      document.getElementById('GraficoLinha'),
-      config
-    );
-  </script>
-  
-  
-
-
 </html>
 
+
 <script>
+
+
 
     let proximaAtualizacao;
 
@@ -137,12 +113,126 @@
 
     sessionStorage.EMAIL_USUARIO;
     sessionStorage.NOME_USUARIO;
-    b_usuario.innerHTML = sessionStorage.EMAIL_USUARIO;
+    sessionStorage.FK_USUARIO;
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO ;
 
     //verificar_autenticacao();
 
     // altere aqui como os dados serão exibidos
     // e como são recuperados do BackEnd
+
+
+        
+var top1_jogador = ""
+var top1_votos = 0
+var top2_jogador = ""
+var top2_votos = 0
+var top3_jogador = ""
+var top3_votos = 0
+var top4_jogador = ""
+var top4_votos = 0
+var top5_jogador = ""
+var top5_votos = 0
+
+    
+    function top5() {
+        fetch("/usuarios/top5").then(function (res1) {
+            if (res1.ok) {
+                console.log(res1)
+                res1.json().then(function (res1) {
+                    console.log("Votos Dados recebidos: ", JSON.stringify(res1))
+
+                 top1_jogador = res1[0].nome
+                 top1_votos = res1[0].voto
+                 top2_jogador = res1[1].nome
+                 top2_votos = res1[1].voto
+                 top3_jogador = res1[2].nome
+                 top3_votos = res1[2].voto
+                 top4_jogador = res1[3].nome
+                 top4_votos = res1[3].voto
+                 top5_jogador = res1[4].nome
+                 top5_votos = res1[4].voto
+
+
+                 
+                 mychrtt.innerHTML = `${top1_jogador} - ${top1_votos} - `
+                 mychrtt.innerHTML += `${top2_jogador} - ${top2_votos} - `
+                 mychrtt.innerHTML += `${top3_jogador} - ${top3_votos} - `
+                 mychrtt.innerHTML += `${top4_jogador} - ${top4_votos} - `
+                 mychrtt.innerHTML += `${top5_jogador} - ${top5_votos} - `
+
+
+                 if (sessionStorage.FK_USUARIO == 1) {
+
+                    Fk.innerHTML = `<img style='width: 20%; heigth: 8vh;' src="../Img/CassioPerfil.png">`
+
+                    } else if (sessionStorage.FK_USUARIO == 2) {
+
+                    Fk.innerHTML = `Jogador é o Fabio Santos`
+
+                    } else if (sessionStorage.FK_USUARIO == 3) {
+
+                    Fk.innerHTML = `Jogador é o Fagner`
+
+                    } else if (sessionStorage.FK_USUARIO == 4) {
+
+                    Fk.innerHTML = `Jogador é o Gil`
+
+                    } else if (sessionStorage.FK_USUARIO == 5) {
+
+                    Fk.innerHTML = `Jogador é o João Vitor`
+
+                    } else if (sessionStorage.FK_USUARIO == 6) {
+
+                    Fk.innerHTML = `Jogador é o Du Queiroz`
+
+                    } else if (sessionStorage.FK_USUARIO == 7) {
+
+                    Fk.innerHTML = `Jogador é o Maycon`
+
+                    } else if (sessionStorage.FK_USUARIO == 8) {
+
+                    Fk.innerHTML = `Jogador é o Paulinho`
+
+                    } else if (sessionStorage.FK_USUARIO == 9) {
+
+                    Fk.innerHTML = `Jogador é o Adson`
+
+                    } else if (sessionStorage.FK_USUARIO == 10) {
+
+                    Fk.innerHTML = `Jogador é o William`
+
+                    } else if (sessionStorage.FK_USUARIO == 11) {
+
+                    Fk.innerHTML = `Jogador é o Renato Augusto`
+
+                    } else if (sessionStorage.FK_USUARIO == 12) {
+
+                    Fk.innerHTML = `Jogador é o Roger Guedes`
+
+                    } else if (sessionStorage.FK_USUARIO == 13) {
+
+                    Fk.innerHTML = `Jogador é o Jo`
+
+                    } else {
+                        
+                    Fk.innerHTML = `Não identificamos o seu jogador favoritos...`
+
+                    }
+
+                }
+                );
+            } else {
+                throw ('Houve um erro ao pegar info!');
+            }
+        }).catch(function (res1) {
+            console.error(res1);
+        });
+    }
+
+
+
     function obterDadosGrafico(idAquario) {
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
@@ -175,10 +265,10 @@
             datasets: [
                 {
                     yAxisID: 'y-umidade',
-                    label: 'Diminuir Barra',
-                    borderColor: 'white',
-                    backgroundColor: 'black',
-                    fill: false,
+                    label: '',
+                    borderColor: 'gray',
+                    backgroundColor: 'gray',
+                    fill: true,
                     data: []
                 },
                 {
@@ -186,7 +276,7 @@
                     label: 'Nivel de Favoritismo',
                     borderColor: 'white',
                     backgroundColor: 'black',
-                    fill: false,
+                    fill: true,
                     data: []
                 }
             ]
@@ -202,7 +292,7 @@
         console.log("estou aqui" + JSON.stringify(dados));
 
         var ctx = canvas_grafico.getContext('2d');
-        window.grafico_linha = Chart.Bar(ctx, {
+        window.grafico_linha = Chart.Line(ctx, {
             data: dados,
             //Configurações do gráfico
             options: {
@@ -275,6 +365,8 @@
 
                     window.grafico_linha.update();
 
+                    top5();
+
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 800);
                 });
             } else {
@@ -287,6 +379,8 @@
             });
 
     }
+
+
 
 
 </script>

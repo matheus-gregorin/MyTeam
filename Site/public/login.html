@@ -113,7 +113,8 @@ fetch("/usuarios/autenticar", {
 
             sessionStorage.NOME_USUARIO = json.nome;
             sessionStorage.EMAIL_USUARIO = json.email;
-            sessionStorage.ID_USUARIO = json.id;
+            sessionStorage.FK_USUARIO = json.fk_jogador;
+            sessionStorage.NOME_USUARIO = json.nomeUsuario;
 
             setTimeout(function () {
                 window.location = "/Dashboard/Dashboard.html";

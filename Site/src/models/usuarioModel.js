@@ -31,8 +31,21 @@ function cadastrar(nome, email, senha, jogador) {
     return database.executar(instrucao);
 }
 
+function top5() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    select jogadores.nomeJogador as nome, COUNT(usuarios.fk_jogador) as voto
+    from usuarios
+    inner join jogadores
+    on usuarios.fk_jogador = jogadores.idJogador group by fk_jogador order by count(fk_jogador) desc limit 5;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    top5
 };
