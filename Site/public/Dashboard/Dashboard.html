@@ -34,6 +34,12 @@
 
             <div class="container">
 
+            <div class="simbolo">
+
+                <div class="divSimbolo"> <img class="imgIcon" src="../Img/icon Corinthians.png" alt=""> </div>
+
+            </div>
+
             <div class="hello">
 
                 <div> Olá, <span id="b_usuario"></span> </div>
@@ -50,16 +56,55 @@
 
             </div>
 
+            <div class="divPreferido">
+                <div class="preferido"> Jogador Preferido deste Usúario </div>
+            </div>
 
-            <div id="Fk"></div>
+
+            <div id="Fk">
+
+               <div class="container">
+
+                 <div class="conteudoUsuario">
+
+
+                  <div class="dFoto" id="dFoto">  </div> 
+
+
+                  <div class="dConteudo1">
+
+                   <div id="nomeJ" style="border-bottom: 2px solid white;"> Nome: </div>
+                   <div id="IdadeJ" style="border-bottom: 2px solid white;"> Idade: </div>
+
+                  </div>
+
+
+                  <div class="dConteudo1">
+
+                   <div id="jogosJ" style="border-bottom: 2px solid white;"> Jogos: </div>
+                   <div id="GolsJ" style="border-bottom: 2px solid white;"> Gols: </div>
+                   <div id="TitulosJ" style="border-bottom: 2px solid white;"> Titulos: </div>
+
+                  </div>
+
+
+                 </div>
+
+               </div>
+
+
+            </div>
+
+            <div class="divPreferido">
+                <div class="preferido"> Indíce Geral em Tempo Real </div>
+            </div>
 
 
         <div class="dash">
 
-            <div class="BannerTitulo">
+            <div class="graph">
 
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <div class="titulo"> Nivel de Favoritismo </div>
+                <canvas id="canvas_grafico2"></canvas>
 
             </div>
 
@@ -70,33 +115,61 @@
             </div>
 
 
-            <div class= "contentJog">
-
-                INDÍCE GERAL
-
-             <div id="Imgjog">
-             Jogador:
-             <div id="dad"></div>
-             Votos
-             <div id="dad1"></div> 
-
-            </div>
-            </div>
-
         </div>
 
     </div>
+
 
     <!-- Grafico 2 -->
 
     <div class="Contgraph2">
 
+        
+    <div class= "contentJog">
+
+     <div id="Imgjog">
+     Jogador:
+     <div id="dad"></div>
+     Votos:
+     <div id="dad1"></div> 
+
+    </div>
+
+    </div>
+
     <div id="mychrtt"> 
+
+        <div class="tit"> TOP 5 Mais Votados </div> <br><br>
+
+        <div class="top5Nome" id="top5Nome1"></div>
+        <div class="top5Rank" id="top5Rank1"></div>
+        <div class="top5Foto" id="top5Foto1"> Foto </div>
+
+        <div class="top5Nome" id="top5Nome2"></div>
+        <div class="top5Rank" id="top5Rank2"></div>
+        <div class="top5Foto" id="top5Foto2"> Foto </div>
+
+        <div class="top5Nome" id="top5Nome3"></div>
+        <div class="top5Rank" id="top5Rank3"></div>
+        <div class="top5Foto" id="top5Foto3"> Foto </div>
+
+        <div class="top5Nome" id="top5Nome4"></div>
+        <div class="top5Rank" id="top5Rank4"></div>
+        <div class="top5Foto" id="top5Foto4"> Foto </div>
+
+        <div class="top5Nome" id="top5Nome5"></div>
+        <div class="top5Rank" id="top5Rank5"></div>
+        <div class="top5Foto" id="top5Foto5"> Foto </div>
+
+    </div>
+
+    <div class="frase">
+
+        <div class="ContFrase" id="ContFrase"></div>
 
     </div>
 
    </div>
-
 
 
 </body>
@@ -105,7 +178,19 @@
 
 <script>
 
-
+    var Cassio = ["Cassio", 34, 585, 0, 9]
+    var Fabio = ["Fabio Santos", 36, 60, 23, 3]
+    var Fagner = ["Fagner", 32, 340, 28, 5]
+    var Gil = ["Gil", 34, 270, 11, 5]
+    var Joao = ["João Vitor", 23, 40, 3, 1]
+    var Du = ["Du Queiroz", 22, 33, 4, 0]
+    var Maycon = ["Maycon", 24, 76, 25, 2]
+    var Paulinho = ["Paulinho", 33, 204, 27, 4]
+    var Adson = ["Adson", 21, 29, 13, 0]
+    var William = ["William", 33, 55, 7, 0]
+    var Renato = ["Renato Augusto", 34, 178, 39, 3]
+    var Roger = ["Roger Guedes", 25, 40, 12, 0]
+    var Jo = ["Jo", 35, 329, 45, 6]
 
     let proximaAtualizacao;
 
@@ -135,6 +220,8 @@ var top4_votos = 0
 var top5_jogador = ""
 var top5_votos = 0
 
+
+
     
     function top5() {
         fetch("/usuarios/top5").then(function (res1) {
@@ -156,70 +243,146 @@ var top5_votos = 0
 
 
                  
-                 mychrtt.innerHTML = `${top1_jogador} - ${top1_votos} - `
-                 mychrtt.innerHTML += `${top2_jogador} - ${top2_votos} - `
-                 mychrtt.innerHTML += `${top3_jogador} - ${top3_votos} - `
-                 mychrtt.innerHTML += `${top4_jogador} - ${top4_votos} - `
-                 mychrtt.innerHTML += `${top5_jogador} - ${top5_votos} - `
+                 top5Nome1.innerHTML = `${top1_jogador}`
+                 top5Nome2.innerHTML = `${top2_jogador}`
+                 top5Nome3.innerHTML = `${top3_jogador}`
+                 top5Nome4.innerHTML = `${top4_jogador}`
+                 top5Nome5.innerHTML = `${top5_jogador}`
 
+                 top5Rank1.innerHTML = `${top1_votos} `
+                 top5Rank2.innerHTML = `${top2_votos} `
+                 top5Rank3.innerHTML = `${top3_votos} `
+                 top5Rank4.innerHTML = `${top4_votos} `
+                 top5Rank5.innerHTML = `${top5_votos} `
+
+
+                              // Puxando a FK
 
                  if (sessionStorage.FK_USUARIO == 1) {
 
-                    Fk.innerHTML = `<img style='width: 20%; heigth: 8vh;' src="../Img/CassioPerfil.png">`
+                    dFoto.innerHTML = `<img class='img1' style='width: 45%; heigth: 6vh;' src="../Img/CassioPerfil.png">`
+                    nomeJ.innerHTML = `Nome: ${Cassio[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Cassio[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Cassio[2]}`
+                    GolsJ.innerHTML = `Gols: ${Cassio[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Cassio[4]}`
+
 
                     } else if (sessionStorage.FK_USUARIO == 2) {
 
-                    Fk.innerHTML = `Jogador é o Fabio Santos`
+                    dFoto.innerHTML = `<img class='img1' style='width: 55%; heigth: 6vh;' src="../Img/Fabio Perfil.jfif">`
+                    nomeJ.innerHTML = `Nome: ${Fabio[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Fabio[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Fabio[2]}`
+                    GolsJ.innerHTML = `Gols: ${Fabio[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Fabio[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 3) {
 
-                    Fk.innerHTML = `Jogador é o Fagner`
+                    dFoto.innerHTML = `<img class='img1' style='width: 95%; heigth: 9vh;' src="../Img/Fagner Perfil.jfif">`
+                    nomeJ.innerHTML = `Nome: ${Fagner[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Fagner[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Fagner[2]}`
+                    GolsJ.innerHTML = `Gols: ${Fagner[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Fagner[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 4) {
 
-                    Fk.innerHTML = `Jogador é o Gil`
+                    dFoto.innerHTML = `<img class='img1' style='width: 55%; heigth: 6vh;' src="../Img/Gil Perfil.jfif">`
+                    nomeJ.innerHTML = `Nome: ${Gil[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Gil[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Gil[2]}`
+                    GolsJ.innerHTML = `Gols: ${Gil[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Gil[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 5) {
 
-                    Fk.innerHTML = `Jogador é o João Vitor`
+                    dFoto.innerHTML = `<img class='img1' style='width: 65%; heigth: 6vh;' src="../Img/Joao Perfil.jfif">`
+                    nomeJ.innerHTML = `Nome: ${Joao[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Joao[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Joao[2]}`
+                    GolsJ.innerHTML = `Gols: ${Joao[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Joao[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 6) {
 
-                    Fk.innerHTML = `Jogador é o Du Queiroz`
+                    dFoto.innerHTML = `<img class='img1' style='width: 65%; heigth: 6vh;' src="../Img/Du Perfil.png">`
+                    nomeJ.innerHTML = `Nome: ${Du[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Du[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Du[2]}`
+                    GolsJ.innerHTML = `Gols: ${Du[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Du[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 7) {
 
-                    Fk.innerHTML = `Jogador é o Maycon`
+                    dFoto.innerHTML = `<img class='img1' style='width: 90%; heigth: 6vh;' src="../Img/Maycon Perfil.jfif">`
+                    nomeJ.innerHTML = `Nome: ${Maycon[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Maycon[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Maycon[2]}`
+                    GolsJ.innerHTML = `Gols: ${Maycon[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Maycon[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 8) {
 
-                    Fk.innerHTML = `Jogador é o Paulinho`
+                    dFoto.innerHTML = `<img class='img1' style='width: 95%; heigth: 9vh;' src="../Img/Paulinho Perfil.jpg">`
+                    nomeJ.innerHTML = `Nome: ${Paulinho[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Paulinho[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Paulinho[2]}`
+                    GolsJ.innerHTML = `Gols: ${Paulinho[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Paulinho[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 9) {
 
-                    Fk.innerHTML = `Jogador é o Adson`
+                    dFoto.innerHTML = `<img class='img1' style='width: 95%; heigth: 6vh;' src="../Img/Adson Perfil.jfif">`
+                    nomeJ.innerHTML = `Nome: ${Adson[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Adson[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Adson[2]}`
+                    GolsJ.innerHTML = `Gols: ${Adson[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Adson[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 10) {
 
-                    Fk.innerHTML = `Jogador é o William`
+                    dFoto.innerHTML = `<img class='img1' style='width: 95%; heigth: 6vh;' src="../Img/William Perfil.jfif">`
+                    nomeJ.innerHTML = `Nome: ${William[0]}`
+                    IdadeJ.innerHTML = `Idade: ${William[1]}`
+                    jogosJ.innerHTML = `Jogos: ${William[2]}`
+                    GolsJ.innerHTML = `Gols: ${William[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${William[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 11) {
 
-                    Fk.innerHTML = `Jogador é o Renato Augusto`
+                    dFoto.innerHTML = `<img class='img1' style='width: 70%; heigth: 6vh;' src="../Img/Renato Perfil.jfif">`
+                    nomeJ.innerHTML = `Nome: ${Renato[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Renato[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Renato[2]}`
+                    GolsJ.innerHTML = `Gols: ${Renato[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Renato[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 12) {
 
-                    Fk.innerHTML = `Jogador é o Roger Guedes`
+                    dFoto.innerHTML = `<img class='img1' style='width: 95%; heigth: 6vh;' src="../Img/Roger Perfil.jfif">`
+                    nomeJ.innerHTML = `Nome: ${Roger[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Roger[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Roger[2]}`
+                    GolsJ.innerHTML = `Gols: ${Roger[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Roger[4]}`
 
                     } else if (sessionStorage.FK_USUARIO == 13) {
 
-                    Fk.innerHTML = `Jogador é o Jo`
+                    dFoto.innerHTML = `<img class='img1' style='width: 95%; heigth: 6vh;' src="../Img/Jo Perfil.jfif">`
+                    nomeJ.innerHTML = `Nome: ${Jo[0]}`
+                    IdadeJ.innerHTML = `Idade: ${Jo[1]}`
+                    jogosJ.innerHTML = `Jogos: ${Jo[2]}`
+                    GolsJ.innerHTML = `Gols: ${Jo[3]}`
+                    TitulosJ.innerHTML = `Titulos: ${Jo[4]}`
 
                     } else {
                         
                     Fk.innerHTML = `Não identificamos o seu jogador favoritos...`
 
                     }
+
+                    falarFrase();
 
                 }
                 );
@@ -230,6 +393,43 @@ var top5_votos = 0
             console.error(res1);
         });
     }
+
+    var frase = ["Aqui tem um Bando de Louco", "Humildade, Lealdade, Integridade", 
+    "Salve o Corinthians, dos campeão dos campeões...", 
+    "Ou você é torce para o Corinthians ou você torce contra"]
+
+
+    function falarFrase () {
+        
+        for (contador = 0; contador < frase.length; contador++) {
+
+            if (frase) {
+
+                var numero = Math.random() * contador
+
+                if (numero > 0 && numero <= 1){
+                
+                ContFrase.innerHTML = `${frase[1]}`
+
+               } else if (numero > 1 && numero <= 2) {
+
+                ContFrase.innerHTML = `${frase[2]}`
+
+               } else if (numero > 2 && numero <= 3) {
+
+                ContFrase.innerHTML = `${frase[3]}`
+
+               } else if (numero > 3 && numero <= 4) {
+
+                ContFrase.innerHTML = `${frase[4]}`
+
+               }
+            }
+
+        }
+      }
+    
+    // Continuar esta parte
 
 
 
@@ -266,16 +466,16 @@ var top5_votos = 0
                 {
                     yAxisID: 'y-umidade',
                     label: '',
-                    borderColor: 'gray',
-                    backgroundColor: 'gray',
+                    borderColor: 'black',
+                    backgroundColor: 'black',
                     fill: true,
                     data: []
                 },
                 {
                     yAxisID: 'y-temperatura',
                     label: 'Nivel de Favoritismo',
-                    borderColor: 'white',
-                    backgroundColor: 'black',
+                    borderColor: 'black',
+                    backgroundColor: 'white',
                     fill: true,
                     data: []
                 }
@@ -293,6 +493,49 @@ var top5_votos = 0
 
         var ctx = canvas_grafico.getContext('2d');
         window.grafico_linha = Chart.Line(ctx, {
+            data: dados,
+            //Configurações do gráfico
+            options: {
+                responsive: true,
+                animation: { duration: 300 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: false,
+                    text: 'Favoritismo'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-temperatura',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 80,
+                            min: 0
+                        }
+                    }, {
+                        type: 'linear',
+                        display: false,
+                        position: 'right',
+                        id: 'y-umidade',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 80,
+                            min: 0
+                        },
+
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                }
+            }
+        });
+
+        var ctx = canvas_grafico2.getContext('2d');
+        window.grafico_linha2 = Chart.Bar(ctx, {
             data: dados,
             //Configurações do gráfico
             options: {
@@ -364,6 +607,7 @@ var top5_votos = 0
 
 
                     window.grafico_linha.update();
+                    window.grafico_linha2.update();
 
                     top5();
 
