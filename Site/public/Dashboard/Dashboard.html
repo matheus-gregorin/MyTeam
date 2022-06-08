@@ -143,23 +143,18 @@
 
         <div class="top5Nome" id="top5Nome1"></div>
         <div class="top5Rank" id="top5Rank1"></div>
-        <div class="top5Foto" id="top5Foto1"> Foto </div>
 
         <div class="top5Nome" id="top5Nome2"></div>
         <div class="top5Rank" id="top5Rank2"></div>
-        <div class="top5Foto" id="top5Foto2"> Foto </div>
 
         <div class="top5Nome" id="top5Nome3"></div>
         <div class="top5Rank" id="top5Rank3"></div>
-        <div class="top5Foto" id="top5Foto3"> Foto </div>
 
         <div class="top5Nome" id="top5Nome4"></div>
         <div class="top5Rank" id="top5Rank4"></div>
-        <div class="top5Foto" id="top5Foto4"> Foto </div>
 
         <div class="top5Nome" id="top5Nome5"></div>
         <div class="top5Rank" id="top5Rank5"></div>
-        <div class="top5Foto" id="top5Foto5"> Foto </div>
 
     </div>
 
@@ -170,6 +165,12 @@
     </div>
 
    </div>
+
+   <div class="footer">
+    <div class="container">
+         <div class="footerOne">Todos os direitos Reservados & </div>
+    </div>
+</div>
 
 
 </body>
@@ -243,17 +244,17 @@ var top5_votos = 0
 
 
                  
-                 top5Nome1.innerHTML = `${top1_jogador}`
-                 top5Nome2.innerHTML = `${top2_jogador}`
-                 top5Nome3.innerHTML = `${top3_jogador}`
-                 top5Nome4.innerHTML = `${top4_jogador}`
-                 top5Nome5.innerHTML = `${top5_jogador}`
+                 top5Nome1.innerHTML = ` <b> 1° - ${top1_jogador} </b>`
+                 top5Nome2.innerHTML = ` 2° - ${top2_jogador}`
+                 top5Nome3.innerHTML = ` 3° - ${top3_jogador}`
+                 top5Nome4.innerHTML = ` 4° - ${top4_jogador}`
+                 top5Nome5.innerHTML = ` 5° - ${top5_jogador}`
 
-                 top5Rank1.innerHTML = `${top1_votos} `
-                 top5Rank2.innerHTML = `${top2_votos} `
-                 top5Rank3.innerHTML = `${top3_votos} `
-                 top5Rank4.innerHTML = `${top4_votos} `
-                 top5Rank5.innerHTML = `${top5_votos} `
+                 top5Rank1.innerHTML = `<b> ${top1_votos} vezes escolhido </b> `
+                 top5Rank2.innerHTML = `${top2_votos} vezes escolhido `
+                 top5Rank3.innerHTML = `${top3_votos} vezes escolhido `
+                 top5Rank4.innerHTML = `${top4_votos} vezes escolhido `
+                 top5Rank5.innerHTML = `${top5_votos} vezes escolhido `
 
 
                               // Puxando a FK
@@ -333,7 +334,7 @@ var top5_votos = 0
 
                     } else if (sessionStorage.FK_USUARIO == 9) {
 
-                    dFoto.innerHTML = `<img class='img1' style='width: 95%; heigth: 6vh;' src="../Img/Adson Perfil.jfif">`
+                    dFoto.innerHTML = `<img class='img1' style='width: 90%; heigth: 6vh;' src="../Img/Adson Perfil.jfif">`
                     nomeJ.innerHTML = `Nome: ${Adson[0]}`
                     IdadeJ.innerHTML = `Idade: ${Adson[1]}`
                     jogosJ.innerHTML = `Jogos: ${Adson[2]}`
@@ -394,9 +395,9 @@ var top5_votos = 0
         });
     }
 
-    var frase = ["Aqui tem um Bando de Louco", "Humildade, Lealdade, Integridade", 
+    var frase = ["Aqui tem um Bando de Louco...", "Humildade, Lealdade, Integridade...", 
     "Salve o Corinthians, dos campeão dos campeões...", 
-    "Ou você é torce para o Corinthians ou você torce contra"]
+    "Ou você é torce para o Corinthians ou você torce contra..."]
 
 
     function falarFrase () {
